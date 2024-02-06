@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Dashboard</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+
+    <!-- Google Fonts -->
+    <link rel="googlefonts" href="googlefonts.css" />
+
+    <!-- Vendor CSS Files -->
+    <link rel="stylesheet" href="bootstrap.css" />
+    <link href="vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <link href="vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link href="vendor/quill/quill.snow.css" rel="stylesheet" />
+    <link href="vendor/quill/quill.bubble.css" rel="stylesheet" />
+    <link href="vendor/remixicon/remixicon.css" rel="stylesheet" />
+    <link href="vendor/simple-datatables/style.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0/dist/css/bootstrap-select.min.css"
+    />
+
+    <!--Bootstrap JavaScript file-->
+    <script src="bootstrap.js"></script>
+
+    <!-- Add this script tag in your HTML file -->
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/countup.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.2.0/dist/echarts.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", { packages: ["corechart"] });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- Include Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <!-- Include Bootstrap-select CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top d-flex align-items-center">
+      <div class="d-flex align-items-center justify-content-between">
+        <a
+          href="dashboard_frontpage.html"
+          class="logo d-flex align-items-center"
+        >
+          <span class="d-none d-lg-block">DIKSHA CHAUDHARY</span>
+        </a>
+      </div>
+      <!-- End Logo -->
+    </header>
+    <!-- End Header -->
+    
+    <main id="main" class="main">
+      <div class="pagetitle">
+        <h1>Dashboard</h1>
+        <nav>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="dashboard_frontpage.html">Home</a>
+            </li>
+            <li class="breadcrumb-item active">Dashboard</li>
+          </ol>
+        </nav>
+      </div>      
+
+      <div class="col-lg-12">
+        <div class="row">
+          <!--total cases-->
+          <div class="col-xxl-3 col-md-6">
+            <div class="card info-card sales-card">
+              <div class="card-body">
+                <h5 class="card-title">Total Cases</h5>
+
+                <div class="d-flex align-items-center">
+                  <div
+                    class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+                  ></div>
+                  <div class="ps-3">
+                    <div id="sumtc"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- total people arrested card -->
+          <div class="col-xxl-3 col-md-6">
+            <div class="card info-card revenue-card">
+              <div class="card-body">
+                <h5 class="card-title">Total People Arrested</h5>
+
+                <div class="d-flex align-items-center">
+                  <div
+                    class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+                  ></div>
+                  <div class="ps-3">
+                    <div id="sump_ar"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Total people convicted -->
+          <div class="col-xxl-3 col-md-6">
+            <div class="card info-card customers-card">
+              <div class="card-body">
+                <h5 class="card-title">Total People Convicted</h5>
+
+                <div class="d-flex align-items-center">
+                  <div
+                    class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+                  ></div>
+                  <div class="ps-3">
+                    <div id="sump_cv"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Total people acquitted -->
+          <div class="col-xxl-3 col-md-6">
+            <div class="card info-card customers-card">
+              <div class="card-body">
+                <h5 class="card-title">Total People Acquitted</h5>
+
+                <div class="d-flex align-items-center">
+                  <div
+                    class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+                  ></div>
+                  <div class="ps-3">
+                    <div id="sump_aq"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Left side columns -->
+
+      <!-- Right side columns -->
+      <div class="col-lg-12">
+        <div class="row">
+          <!-- Recent Orders Card -->
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Total Cases For Trial in Each State</h5>
+
+              <!-- Bar Chart -->
+              <canvas id="barChart" style="max-height: 500px"></canvas>
+              <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+              <script
+                src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.2.0/chartjs-plugin-datalabels.min.js"
+                integrity="sha512-JPcRR8yFa8mmCsfrw4TNte1ZvF1e3+1SdGMslZvmrzDYxS69J7J49vkFL8u6u8PlPJK+H3voElBtUCzaXj+6ig=="
+                crossorigin="anonymous"
+                referrerpolicy="no-referrer"
+              ></script>
+              <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                  // Fetch data from the API endpoint
+                  fetch("http://localhost:3000/TvsA")
+                    .then((response) => response.json())
+                    .then((data) => {
+                      // Extract necessary data from the API response
+                      const labels = data.map((item) => item.area_name);
+                      const values = data.map((item) => item.total_cases_sum);
+                      const colors = data.map((item) => generateRandomColor()); // Generate a random color for each object
+
+                      // Create the chart
+                      new Chart(document.querySelector("#barChart"), {
+                        type: "bar",
+                        data: {
+                          labels: labels,
+                          datasets: [
+                            {
+                              label: "Total Cases",
+                              data: values,
+                              backgroundColor: colors,
+                              borderColor: colors,
+                              borderWidth: 1,
+                              datalabels: {
+                                anchor: "start",
+                              },
+                            },
+                          ],
+                        },
+                        options: {
+                          responsive: true,
+                          scales: {
+                            x: {
+                              type: "category",
+                              display: true,
+                              title: {
+                                display: true,
+                                text: "Year",
+                              },
+                            },
+                            y: {
+                              display: true,
+                              ticks: {
+                                stepSize: 50000,
+                              },
+                              title: {
+                                display: true,
+                                text: "Total Cases",
+                              },
+                            },
+                          },
+                          plugins: {
+                            datalabels: {
+                              color: "black", // Value label color
+                              font: {
+                                weight: "bold",
+                              },
+                              formatter: function (value, context) {
+                                return value; // Display the value on each doughnut slice
+                              },
+                            },
+                          },
+                        },
+                        plugins: [ChartDataLabels],
+                      });
+                    })
+                    .catch((error) => {
+                      console.log("Error:", error);
+                    });
+                });
+
+                // Function to generate a random color
+                function generateRandomColor() {
+                  const letters = "0123456789ABCDEF";
+                  let color = "#";
+                  for (let i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                  }
+                  return color;
+                }
+              </script>
+
+              <!-- End Bar CHart -->
+            </div>
+          </div>
+          <!-- End Recent Orders Card -->
+        </div>
+      </div>
+      <!-- End Right side columns -->
+
+      <section class="section">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card-body">
+              <h5 class="card-title">
+                Total Cases vs Total People Arrested Vs Total People Convicted
+                per year
+              </h5>
+
+              <!-- Line Chart -->
+              <canvas
+                id="lineChart"
+                style="
+                  max-height: 500px;
+                  display: block;
+                  box-sizing: border-box;
+                  height: 400px;
+                  width: 572px;
+                "
+                width="716"
+                height="600"
+              ></canvas>
+              <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+              <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                  Promise.all([
+                    fetch("http://localhost:3000/PCVvsYear").then((response) =>
+                      response.json()
+                    ),
+                    fetch("http://localhost:3000/ParvsYear").then((response) =>
+                      response.json()
+                    ),
+                    fetch("http://localhost:3000/TCvsYear").then((response) =>
+                      response.json()
+                    ),
+                  ])
+                    .then(([PCVvsYearData, ParvsYearData, TCvsYearData]) => {
+                      const years = PCVvsYearData.map((item) => item.year);
+                      const PCVvsYearValues = PCVvsYearData.map(
+                        (item) => item.total_people_convicted
+                      );
+                      const ParvsYearValues = ParvsYearData.map(
+                        (item) => item.persons_arrested_sum
+                      );
+                      const TCvsYearValues = TCvsYearData.map(
+                        (item) => item.total_cases_sum
+                      );
+                      console.log("item.total_case", TCvsYearValues);
+
+                      new Chart(document.querySelector("#lineChart"), {
+                        type: "line",
+                        data: {
+                          labels: years,
+                          datasets: [
+                            {
+                              label: "Total Cases",
+                              data: TCvsYearValues,
+                              fill: false,
+                              borderColor: "rgb(23, 45, 255)",
+                              tension: 0.1,
+                            },
+                            {
+                              label: "Persons Convicted",
+                              data: PCVvsYearValues,
+                              fill: false,
+                              borderColor: "rgb(75, 192, 192)",
+                              tension: 0.1,
+                            },
+                            {
+                              label: "Persons Arrested",
+                              data: ParvsYearValues,
+                              fill: false,
+                              borderColor: "rgb(255, 99, 132)",
+                              tension: 0.1,
+                            },
+                          ],
+                        },
+                        options: {
+                          responsive: true,
+                          scales: {
+                            x: {
+                              type: "category",
+                              display: true,
+                              title: {
+                                display: true,
+                                text: "Year",
+                              },
+                            },
+                            y: {
+                              display: true,
+                              title: {
+                                display: true,
+                                text: "Total Cases, Total People Arrested, Total People Convicted",
+                              },
+                            },
+                          },
+                        },
+                      });
+                    })
+                    .catch((error) => {
+                      console.log("Error:", error);
+                    });
+                });
+              </script>
+
+              <!-- End Line Chart -->
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card-body">
+              <h5 class="card-title">Crime Rate</h5>
+
+              <!-- doughnut Chart -->
+              <canvas id="doughnutChart" style="max-height: 500px"></canvas>
+              <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1"></script>
+              <script
+                src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.2.0/chartjs-plugin-datalabels.min.js"
+                integrity="sha512-JPcRR8yFa8mmCsfrw4TNte1ZvF1e3+1SdGMslZvmrzDYxS69J7J49vkFL8u6u8PlPJK+H3voElBtUCzaXj+6ig=="
+                crossorigin="anonymous"
+                referrerpolicy="no-referrer"
+              ></script>
+              <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                  fetch("http://localhost:3000/totalcrimes")
+                    .then((response) => response.json())
+                    .then((data) => {
+                      const labels = data.map((item) => item.group_name);
+                      const values = data.map((item) => item.total_people);
+
+                      // Generate random colors for each data point
+                      const colors = labels.map((label, index) => {
+                        const randomColor = Math.floor(
+                          Math.random() * 16777215
+                        ).toString(16);
+                        return "#" + randomColor;
+                      });
+
+                      new Chart(document.querySelector("#doughnutChart"), {
+                        type: "doughnut",
+                        data: {
+                          labels: labels,
+                          datasets: [
+                            {
+                              label: "Total Crimes",
+                              data: values,
+                              backgroundColor: colors,
+                              hoverOffset: 4,
+                            },
+                          ],
+                        },
+                      });
+                    })
+                    .catch((error) => {
+                      console.log("Error:", error);
+                    });
+                });
+              </script>
+
+              <!-- End doughnut Chart -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card-body">
+              <h5 class="card-title">Trial Rate in Each State</h5>
+
+              <!-- treemap chart-->
+              <div id="chart" style="width: 750px; height: 500px"></div>
+
+              <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                  fetch("http://localhost:3000/trialrate")
+                    .then((response) => response.json())
+                    .then((data) => {
+                      const values = data.map((item) => ({
+                        name: item.area_name,
+                        value: item.trial_completion_rate,
+                      }));
+
+                      const chart = echarts.init(
+                        document.querySelector("#chart")
+                      );
+
+                      const option = {
+                        series: {
+                          type: "treemap",
+                          data: values,
+                          label: {
+                            show: true,
+                            formatter: "{b}: {c}",
+                          },
+                        },
+                        tooltip: {
+                          trigger: "item",
+                          formatter: "{b}: {c}",
+                        },
+                      };
+
+                      chart.setOption(option);
+                    })
+                    .catch((error) => {
+                      console.log("Error:", error);
+                    });
+                });
+              </script>
+              <!--end treemap chart-->
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card-body">
+              <h5 class="card-title">Arrest Rate in Each State</h5>
+
+              <!-- Bubble Chart -->
+              <canvas id="bubbleChart" width="1109" height="850"></canvas>
+              <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+              <script>
+                // Function to generate a random color
+                function getRandomColor() {
+                  const letters = "0123456789ABCDEF";
+                  let color = "#";
+                  for (let i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                  }
+                  return color;
+                }
+                document.addEventListener("DOMContentLoaded", () => {
+                  fetch("http://localhost:3000/arrestrate")
+                    .then((response) => response.json())
+                    .then((data) => {
+                      const labels = data.map((item) => item.area_name);
+                      const values = data.map((item) => item.arrest_rate);
+                      const colors = data.map((item) => getRandomColor());
+                      new Chart(document.getElementById("bubbleChart"), {
+                        type: "bubble",
+                        data: {
+                          labels: labels,
+                          datasets: [
+                            {
+                              label: "Arrest Rate",
+                              data: values,
+                              backgroundColor: colors,
+                              borderColor: colors,
+                            },
+                          ],
+                        },
+                        options: {
+                          responsive: true,
+                          label: {
+                            show: true,
+                            formatter: "{b}: {c}",
+                          },
+                          elements: {
+                            point: {
+                              pointStyle: "circle",
+                              radius: 10,
+                            },
+                          },
+                          scales: {
+                            x: {
+                              type: "category",
+                              display: true,
+                              title: {
+                                display: true,
+                                text: "Area Name",
+                              },
+                            },
+                            y: {
+                              display: true,
+                              title: {
+                                display: true,
+                                text: "Arrest Rate",
+                              },
+                            },
+                          },
+                        },
+                      });
+                    })
+                    .catch((error) => {
+                      console.log("Error:", error);
+                    });
+                });
+
+                // Function to generate a random color
+              </script>
+
+              <!-- End Bubble Chart -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- End Row -->
+
+      <!-- End Section -->
+    </main>
+    <!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="footer-logo">
+              <a href="dashboard_frontpage.html">DIKSHA CHAUDHARY</a>
+            </div>
+            <p>Dashboard for displaying data</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- End Footer -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js"
+      integrity="sha512-yDlE7vpGDP7o2eftkCiPZ+yuUyEcaBwoJoIhdXv71KZWugFqEphIS3PU60lEkFaz8RxaVsMpSvQxMBaKVwA5xg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="script.js"></script>
+
+    <!-- Vendor JS Files -->
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/php-email-form/validate.js"></script>
+    <script src="vendor/quill/quill.min.js"></script>
+    <script src="vendor/simple-datatables/simple-datatables.js"></script>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Include Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+
+    <!-- Template Main JS File -->
+    <script src="js/main.js"></script>
+  </body>
+</html>
